@@ -1,13 +1,18 @@
-# Python Cookiecutter repository
+# Base Cookiecutter repository
 
 Python template repository including boilerplate workflows and CI.
 
 ```bash
-.bandit.yaml
 .pre-commit-config.yaml
 .github
 └── workflows
+.gitlab
+└── issue_templates
+└── merge_request_templates
+.gitlab-ci.yaml
 ```
+
+Delete unused folder after creating the repository.
 
 ## Creating a new project
 
@@ -40,7 +45,7 @@ docker-compose run pre-commit
 Tune the Github pipelines in [.github/workflows](.github/workflows/).
 
 To speed up the development, you can test the pipeline with [act](https://github.com/nektos/act).
-Installing `act` is beyond the scope of this document.
+Its installation is beyond the scope of this document.
 
 To test the pipeline locally and ensure that secrets (e.g., service accounts and other credentials)
 are correctly configured, use:
@@ -50,3 +55,14 @@ are correctly configured, use:
  act -j test -s CI_API_TOKEN="$(cat gh-ci.json)" \
       -s CI_ACCOUNT=my-secret-account
  ```
+
+## Testing gitlab-ci
+
+Tune the Gitlab pipelines in [.gitlab-ci.yml](.gitlab-ci.yml).
+
+To speed up the development, you can test the pipeline with gitlab-ci-local.
+Its installation is beyond the scope of this document.
+
+```bash
+gitlab-ci-local --file .gitlab-ci.yaml super-linter
+```
