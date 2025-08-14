@@ -11,3 +11,5 @@
 ## Checks
 
 - [ ] This PR conforms the [CONTRIBUTING.md](CONTRIBUTING.md) guidelines
+- [ ] I ran `pre-commit`
+- [ ] I wrote tests
